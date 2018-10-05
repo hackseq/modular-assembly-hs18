@@ -34,6 +34,7 @@ Install [XCode](https://itunes.apple.com/ca/app/xcode/id497799835).
 ```sh
 xcode-select --install
 brew cask install bandage docker igv java r-app rstudio
+open -a Docker
 ```
 
 ## Windows
