@@ -23,6 +23,38 @@ Bake off!
 
 [AssemblerFlow](https://github.com/assemblerflow/flowcraft) builds pipelines of tools for genome assembly. "A [Nextflow](https://www.nextflow.io) pipeline assembler for genomics. Pick your modules. Assemble them. Run the pipeline."
 
+# Software installation instructions
+
+Install [Homebrew](https://brew.sh) on macOS and [Linuxbrew](https://linuxbrew.sh) on Linux and Windows 10, using [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+## macOS
+
+Install [XCode](https://itunes.apple.com/ca/app/xcode/id497799835).
+
+```sh
+xcode-select --install
+brew cask install bandage docker igv java r rstudio
+```
+
+## Windows
+
+Install [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+## Linux and Windows
+
+Install [RStudio](https://www.rstudio.com/products/rstudio/download/).
+
+```sh
+brew install jdk@8 r linuxbrew/extra/singularity brewsci/bio/bandage
+```
+
+## All operating systems
+
+```sh
+brew tap brewsci/bio
+brew install abyss bcalm bwa flowcraft igv miniasm minimap2 ntcard pilon samtools spades unicycler
+```
+
 # Data
 
 [Unicycler sample data](https://github.com/rrwick/Unicycler/tree/master/sample_data)
