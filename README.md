@@ -6,6 +6,15 @@ We will work together to create modular assembler components for AssemblerFlow, 
 
 # Plan
 
+1. **Create assembly components** \
+   Package up existing assembly tools
+2. **Develop the pipeline glue that sticks components together** \
+   using Flowcraft, Nextflow, Snakemake, GNU Make, or shell
+3. **Compose an assembly pipeline of specific tools** \
+   for example, Bcalm &rarr; ABySS bubble popping &rarr; ABySS repeat resolution &rarr; &hellip;
+4. **Assess assembly correctness and contiguity** \
+   Display a constantly-updating leader board of awesomeness
+
 Create assembler components for [AssemblerFlow](https://github.com/assemblerflow/flowcraft).
 
 - [ABySS](https://github.com/bcgsc/abyss)
@@ -18,6 +27,7 @@ Bake off!
 - Each participant will create and run an AssemblerFlow pipeline
 - Assess the quality of each assembly (using Quast)
 - Create a leader board of awesomeness! (using [RStudio](https://www.rstudio.org)'s [Shiny](https://shiny.rstudio.com) or [Flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/))
+- For inspiration, see http://nucleotid.es/benchmarks/
 
 # Tools
 
