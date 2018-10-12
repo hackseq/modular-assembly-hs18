@@ -5,6 +5,12 @@
 profile=standard # Singularity
 #profile=docker
 
+# Fix needed for macOS.
+# docker: Error response from daemon: Mounts denied:
+# The path /var/folders/...
+# is not shared from OS X and is not known to Docker.
+#TMPDIR=/tmp
+
 all: spades
 
 sample_%.fq.gz:
