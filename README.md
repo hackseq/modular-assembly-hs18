@@ -4,6 +4,8 @@ Genome sequencing yields many short reads of DNA from a genome. Genome assembly 
 
 We will work together to create modular assembler components for AssemblerFlow, a tool which builds pipelines of tools for genome assembly using Nextflow. Each participant will create and run a genome assembly pipeline using AssemblerFlow. We will assess the quality of each assembly, using Quast. Finally, we'll create a leader board of awesomeness to compare the assembly results!
 
+You can find our abstract [here](https://github.com/hackseq/modular-assembly-hs18/blob/master/abstract.md)
+
 # Plan
 
 1. **Create assembly components** \
