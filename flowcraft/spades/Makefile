@@ -20,6 +20,10 @@ all: spades
 
 spades: spades.fasta spades.gfa.png
 
+clean:
+	rm -f .forkTree.json .metadata.json .treeDag.json .nextflow.log* pipeline_stats.txt*
+	rm -rf .nextflow pipeline_status reports results work
+
 # Download the reference genome.
 # See https://www.ncbi.nlm.nih.gov/genome/417
 shigella_sonnei.fa:
