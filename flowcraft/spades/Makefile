@@ -18,7 +18,7 @@ profile=standard # Singularity
 
 all: spades
 
-spades: spades.fasta spades.gfa.png
+spades: spades.fasta spades.gfa.png spades.quast.tsv
 
 clean:
 	rm -f .forkTree.json .metadata.json .treeDag.json .nextflow.log* pipeline_stats.txt*
@@ -35,20 +35,24 @@ sample_%.fq.gz:
 
 # Run Flowcraft.
 spades.nf:
-	flowcraft build -t spades -o $@
+	flowcraft build -t 'spades quast' -o $@
 
 # Run Nextflow.
 spades.nf.stamp: spades.nf sample_1.fq.gz sample_2.fq.gz
-	nextflow run $< --fastq='sample_{1,2}.fq.gz' -profile $(profile)
+	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_1_3=shigella_sonnei.fa -profile $(profile)
 	touch $@
 
 # Copy the FASTA genome assembly.
 spades.fasta: spades.nf.stamp
-	cp reports/assembly/spades_1_2/sample/assembly_graph_with_scaffolds.gfa $@
+	cp results/assembly/spades_1_2/sample_spades3120.fasta $@
 
 # Copy the GFA genome assembly graph.
 spades.gfa: spades.nf.stamp
-	cp reports/assembly/spades_1_2/sample/assembly_graph_with_scaffolds.gfa $@
+	cp results/assembly/spades_1_2/sample/assembly_graph_with_scaffolds.gfa $@
+
+# Copy the QUAST report.
+spades.quast.tsv: spades.nf.stamp
+	cp results/assembly/quast_1_3/sample/transposed_report.tsv $@
 
 # Render the GFA file to PNG using Bandage.
 %.gfa.png: %.gfa $(ref).fa
