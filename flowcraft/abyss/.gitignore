@@ -1,0 +1,17 @@
+*.config
+*.fq.gz
+*.fasta
+*.html
+*.json
+*.nf
+.nextflow.log*
+.nextflow/
+bin/
+pipeline_report/
+pipeline_stats.txt*
+pipeline_status/
+reports/
+resources/
+results/
+templates/
+work/
