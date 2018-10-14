@@ -1,5 +1,6 @@
 *.config
 *.fq.gz
+*.fa
 *.fasta
 *.html
 *.json
