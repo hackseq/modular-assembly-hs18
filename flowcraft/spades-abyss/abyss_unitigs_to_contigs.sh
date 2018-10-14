@@ -3,13 +3,14 @@
 #
 # output: 6_contigs.gfa and 6_contigs.fa
 # contigs produced by ABySS
+set -eux
 
 unitigs_gfa2=$1
 unitigs_fa=$2
 k=$3
 
 # install dependencies
-brew install abyss pigz samtools
+# brew install abyss pigz samtools
 
 # Denoise
 abyss-filtergraph --gfa2 -k$k -t200 -c3 -g 2_denoise.gfa $unitigs_gfa2
