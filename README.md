@@ -40,6 +40,44 @@ Bake off!
 - Create a leader board of awesomeness! (using [RStudio](https://www.rstudio.org)'s [Shiny](https://shiny.rstudio.com) or [Flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/))
 - For inspiration, see http://nucleotid.es/benchmarks/
 
+# People
+
+## Emre Erhan
+
+I created a FlowCraft component for ABySS! I added an option to disable repeat resolution in the SPAdes FlowCraft component. I generated bandage plots and quast statistics for ABySS using FlowCraft. I also created the franken-assembler SPAdes-ABySS (or SPABySS), where SPAdes is run without error correction or repeat resolution, and the unitigs are sent to ABySS for processing all the way to scaffolds.
+
+## Figali Taho
+
+I worked on creating a flowcraft component for Unicycler, but got into too many errors, and couldn't manage to debug everything on time! For reference of picking up on it for future Frankenstein assemblers here is my commit: https://github.com/figalit/flowcraft/commit/e554d87dc75d19b1aa635752f26b84059ee45e31. I also helped out Reva with R, and joining together all the data for displaying the leader board. I also added the project abstract and initial slides for the group.
+
+## Paaksum Wong
+
+I created a KmerGenie component for Flowcraft to determine the optimal *k*-mer size.
+
+## Patrick Kong
+
+I created a Unicycler component with QUAST for assessment for the text-based workflow system Snakemake. The workflow system produces bacterial genome assemblies from short sequencing reads using Unicycler and evaluates the assembly using QUAST.
+
+## Paul Medvedev
+
+I worked on updating contigvalidator to use snakemake, getting it to install smoothly, and getting it into a bioconda package.
+
+## Pierre Marijon
+
+I created a BCALM recipe for Bioconda and a BCALM component for Flowcraft. I ran long-read only assemblies with Canu and Miniasm.
+
+## Rayan Chikhi
+
+During the hackathon I modularized those scripts into 5 components: `abyss_contigs_from_unitigs.sh`, `abyss_scaffolding.sh`, `abyss_unitigs.sh`, `bcalm.sh`, `gfaview_contigs_from_unitigs.sh`, and I used these components to build 3 pipelines: ABySS BCALM then ABySS BCALM then gfaview then ABySS. They've been uploaded to https://github.com/GFA-spec/assembler-components Corresponding *Shigella sonnei* assemblies were created and visualized using Bandage.
+
+## Shaun Jackman
+
+I created Flowcraft components for QUAST and Bandage. I used Flowcraft to assemble the Shigella sonnei short reads using SPAdes, assess the assembly quality using QUAST, and visualize the assembly graph using Bandage.
+
+## Swapna Menon
+
+I worked on a hybrid assembly using ABySS and LINKS for three Shigella sonnei plasmids. Assembled short reads with ABySS (k=96). Scaffolded the contigs with LINKS, using long reads.
+
 # Tools
 
 [AssemblerFlow](https://github.com/assemblerflow/flowcraft) builds pipelines of tools for genome assembly. "A [Nextflow](https://www.nextflow.io) pipeline assembler for genomics. Pick your modules. Assemble them. Run the pipeline."
