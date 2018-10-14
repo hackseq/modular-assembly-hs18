@@ -70,6 +70,10 @@ I created a BCALM recipe for Bioconda and a BCALM component for Flowcraft. I ran
 
 During the hackathon I modularized those scripts into 5 components: `abyss_contigs_from_unitigs.sh`, `abyss_scaffolding.sh`, `abyss_unitigs.sh`, `bcalm.sh`, `gfaview_contigs_from_unitigs.sh`, and I used these components to build 3 pipelines: ABySS BCALM then ABySS BCALM then gfaview then ABySS. They've been uploaded to https://github.com/GFA-spec/assembler-components Corresponding *Shigella sonnei* assemblies were created and visualized using Bandage.
 
+## Reva Shenwai
+
+I worked on the “Awesome Assemblies” R Shiny web application (along with Figali, and with help from team lead Shaun & Emre). The website currently has a main page which displays a graph showing the Quality versus Accuracy of our newly developed Franken-assemblers.
+
 ## Shaun Jackman
 
 I created Flowcraft components for QUAST and Bandage. I used Flowcraft to assemble the Shigella sonnei short reads using SPAdes, assess the assembly quality using QUAST, and visualize the assembly graph using Bandage.
