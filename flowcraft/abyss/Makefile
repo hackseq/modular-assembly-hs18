@@ -39,7 +39,7 @@ abyss.nf:
 
 # Run Nextflow.
 abyss.nf.stamp: abyss.nf sample_1.fq.gz sample_2.fq.gz
-	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_1_2=shigella_sonnei.fa -profile $(profile)
+	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_1_2=shigella_sonnei.abe.fa -profile $(profile)
 	touch $@
 
 # Copy the FASTA genome assembly.
