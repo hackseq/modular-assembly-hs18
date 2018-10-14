@@ -1,0 +1,3 @@
+Assembly	# contigs (>= 0 bp)	# contigs (>= 1000 bp)	# contigs (>= 5000 bp)	# contigs (>= 10000 bp)	# contigs (>= 25000 bp)	# contigs (>= 50000 bp)	Total length (>= 0 bp)	Total length (>= 1000 bp)	Total length (>= 5000 bp)	Total length (>= 10000 bp)	Total length (>= 25000 bp)	Total length (>= 50000 bp)	# contigs	Largest contig	Total length	Estimated reference length	GC (%)	N50	NG50	N75	NG75	L50	LG50	L75	LG75	# N's per 100 kbp
+canu.contigs	10	10	10	5	2	2	189520	189520	189520	145564	105666	105666	10	55538	189520	229883	43.81	50128	14962	10429	8915	2	3	5	8	0.00
+shigella_sonnei.abe	3	3	3	1	1	1	229880	229880	229880	215774	215774	215774	3	215774	229880	229883	44.99	215774	215774	215774	215774	1	1	1	1	0.00
