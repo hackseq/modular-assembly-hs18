@@ -18,7 +18,7 @@ profile=standard # Singularity
 
 all: abyss
 
-abyss: abyss.fasta abyss.quast.tsv # abyss.gfa.png
+abyss: abyss.fasta abyss.quast.tsv abyss.gfa.png
 
 clean:
 	rm -f .forkTree.json .metadata.json .treeDag.json .nextflow.log* pipeline_stats.txt*
@@ -48,7 +48,7 @@ abyss.fasta: abyss.nf.stamp
 
 # Copy the GFA genome assembly graph.
 abyss.gfa: abyss.nf.stamp
-	cp results/assembly/abyss_1_1/sample/assembly_graph_with_scaffolds.gfa $@
+	cp results/assembly/abyss_1_1/*-scaffolds.gfa $@
 
 # Copy the QUAST report.
 abyss.quast.tsv: abyss.nf.stamp
