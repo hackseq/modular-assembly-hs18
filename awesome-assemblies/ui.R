@@ -8,6 +8,8 @@
 #
 
 library(shiny)
+install.packages("ggrepel")
+library(ggrepel)
 
 source ("home/ui.R")
 

@@ -1,5 +1,8 @@
 # Libraries
 library (DT)
+library(ggrepel)
+library(tidyverse)
+library(ggplot2)
 
 # Home Module (main Leaderboard page) UI function
 homeUI <- function(id) {
@@ -13,11 +16,10 @@ homeUI <- function(id) {
       
     # Show a plot of the generated distribution
     fluidRow(
-      "Hello",
-      plotOutput(outputId = ns ("distPlot"))
+      plotOutput("dataPlot")
     ),
     fluidRow(
-      DT::dataTableOutput(outputId = ns ("dataTable"))
+      DT::dataTableOutput("data")
     )
   )
 }

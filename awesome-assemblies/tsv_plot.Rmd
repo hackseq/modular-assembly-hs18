@@ -1,0 +1,23 @@
+---
+title: "awesome-assemblies"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r read-data}
+data <- read_tsv('spades.quast.tsv')
+data
+```
+
+```{r}
+ggplot(data) +
+  aes(x = "# misassemblies", y = NGA50, label = Assembly) +
+  geom_point() +
+  geom_text_repel()
+```
