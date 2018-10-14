@@ -4,7 +4,7 @@
 .SECONDARY:
 
 # Referene genome
-ref=shigella_sonnei
+ref=shigella_sonnei.abe
 
 # Which container enginer to use.
 profile=standard # Singularity
@@ -29,17 +29,22 @@ clean:
 shigella_sonnei.fa:
 	curl ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/283/715/GCF_000283715.1_ASM28371v1/GCF_000283715.1_ASM28371v1_genomic.fna.gz | seqtk seq >$@
 
+# Extract the A, B, and E plasmids.
+shigella_sonnei.abe.fa: shigella_sonnei.fa
+	samtools faidx $< NC_016833.1 NC_016823.1 NC_016834.1 | seqtk seq >$@
+
 # Download the sequencing data.
+# See https://github.com/rrwick/Unicycler/tree/master/sample_data#shigella-sonnei-plasmids-synthetic-reads
 sample_%.fq.gz:
 	curl -L -o $@ https://github.com/rrwick/Unicycler/raw/master/sample_data/short_reads_$*.fastq.gz
 
 # Run Flowcraft.
 spades.nf:
-	flowcraft build -t 'spades quast' -o $@
+	flowcraft build -t 'spades bandage' -o $@
 
 # Run Nextflow.
-spades.nf.stamp: spades.nf sample_1.fq.gz sample_2.fq.gz
-	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_1_3=shigella_sonnei.fa -profile $(profile)
+spades.nf.stamp: spades.nf sample_1.fq.gz sample_2.fq.gz $(ref).fa
+	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_1_3=$(ref).fa -profile $(profile)
 	touch $@
 
 # Copy the FASTA genome assembly.
