@@ -40,11 +40,11 @@ sample_%.fq.gz:
 
 # Run Flowcraft.
 spades.nf:
-	flowcraft build -t 'spades bandage' -o $@
+	flowcraft build -t 'spades (bandage | quast)' -o $@
 
 # Run Nextflow.
 spades.nf.stamp: spades.nf sample_1.fq.gz sample_2.fq.gz $(ref).fa
-	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_1_3=$(ref).fa -profile $(profile)
+	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_2_3=$(ref).fa --reference_3_4=$(ref).fa -profile $(profile)
 	touch $@
 
 # Copy the FASTA genome assembly.
