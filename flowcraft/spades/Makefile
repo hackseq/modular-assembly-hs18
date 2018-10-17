@@ -40,11 +40,11 @@ sample_%.fq.gz:
 
 # Run Flowcraft.
 spades.nf:
-	flowcraft build -t 'spades (bandage | quast)' -o $@
+	flowcraft-dev build --merge-params -t 'spades (bandage | quast)' -o $@
 
 # Run Nextflow.
 spades.nf.stamp: spades.nf sample_1.fq.gz sample_2.fq.gz $(ref).fa
-	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference_2_3=$(ref).fa --reference_3_4=$(ref).fa -profile $(profile)
+	nextflow run $< -resume --fastq='sample_{1,2}.fq.gz' --reference=$(ref).fa -profile $(profile)
 	touch $@
 
 # Copy the FASTA genome assembly.
@@ -55,14 +55,10 @@ spades.fasta: spades.nf.stamp
 spades.gfa: spades.nf.stamp
 	cp results/assembly/spades_1_2/sample/assembly_graph_with_scaffolds.gfa $@
 
+# Copy the Bandage plot.
+spades.gfa.png: spades.nf.stamp
+	cp reports/assembly/bandage_2_3/sample/sample_spades3120.fasta.ref.png .
+
 # Copy the QUAST report.
 spades.quast.tsv: spades.nf.stamp
-	cp results/assembly/quast_1_3/sample/transposed_report.tsv $@
-
-# Render the GFA file to PNG using Bandage.
-%.gfa.png: %.gfa $(ref).fa
-	Bandage image $< $@ --query $(ref).fa
-
-# Render the GFA file to SVG using Bandage.
-%.gfa.svg: %.gfa $(ref).fa
-	Bandage image $< $@ --query $(ref).fa
+	cp results/assembly/quast_3_4/sample/transposed_report.tsv $@
