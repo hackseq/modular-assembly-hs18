@@ -40,7 +40,7 @@ sample_%.fq.gz:
 
 # Run Flowcraft.
 spades.nf:
-	flowcraft-dev build --merge-params -t 'spades (bandage | quast)' -o $@
+	flowcraft build --merge-params -t 'spades (bandage | quast)' -o $@
 
 # Run Nextflow.
 spades.nf.stamp: spades.nf sample_1.fq.gz sample_2.fq.gz $(ref).fa
