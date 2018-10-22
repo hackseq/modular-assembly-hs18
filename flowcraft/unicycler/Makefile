@@ -40,7 +40,7 @@ sample_%.fq.gz:
 
 # Run Flowcraft.
 unicycler.nf:
-	flowcraft-dev build --merge-params -t 'unicycler (bandage | quast)' -o $@
+	flowcraft build --merge-params -t 'unicycler (bandage | quast)' -o $@
 
 # Run Nextflow.
 unicycler.nf.stamp: unicycler.nf sample_1.fq.gz sample_2.fq.gz $(ref).fa
